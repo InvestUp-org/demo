@@ -1,0 +1,70 @@
+@font-face {
+	font-family: pretendard;
+	src: url('../assets/fonts/PretendardVariable.woff2') format('woff2');
+	font-weight: 100 900;
+}
+
+:root {
+	/* text */
+	--font-sans: pretendard, system-ui, -apple-system, Roboto, sans-serif;
+
+	--font-bold: 700;
+	--font-semi: 600;
+	--font-medi: 500;
+	--font-regu: 400;
+
+	--font-xxlarge: 3rem;
+	--font-xlarge: 2rem;
+	--font-large: 1.5rem;
+	--font-base: 1rem;
+	--font-small: 0.8rem;
+
+	--font-l100: 100%;
+	--font-l120: 120%;
+	--font-l150: 150%;
+
+	/* color */
+	--primary: #236fea;
+	--secondary: #134594;
+	--danger: #ea2f29;
+	--warning: #efd837;
+	--success: #2bbf33;
+
+	--primary-dark: #085bd4;
+	--secondary-dark: #073b89;
+	--danger-dark: #d2010d;
+	--warning-dark: #c5ad00;
+	--success-dark: #009a00;
+
+	--white-0: #fff;
+	--white-1: #f1f1f1;
+	--white-2: #eee;
+	--white-3: #cdd1d5;
+	--black-0: #000;
+	--black-1: #111;
+	--black-2: #333;
+	--black-3: #555;
+
+	/* border */
+	--border: 1px solid var(--white-3);
+	--border-b: 2px solid var(--white-3);
+	--border-r16: 1rem;
+	--border-r8: 0.5rem;
+	--border-r4: 0.25rem;
+	--border-rc: 50%;
+
+	/* space */
+	--space-48: 3rem;
+	--space-32: 2rem;
+	--space-24: 1.5rem;
+	--space-16: 1rem;
+	--space-12: 0.8rem;
+	--space-8: 0.5rem;
+	--space-4: 0.25rem;
+
+    /* width */
+    --max-full: 100%;
+    --max-desk: 1440px;
+    --max-tabl: 1200px;
+    --max-mobi: 830px;
+}

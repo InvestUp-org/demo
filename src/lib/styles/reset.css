@@ -1,0 +1,58 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background: none;
+	list-style-type: none;
+	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: var(--font-sans);
+	line-height: var(--font-l150);
+	box-sizing: border-box;
+	flex: none;
+	transform: none;
+	perspective: none;
+	filter: none;
+}
+
+html,
+body,
+#app {
+	width: 100%;
+	background-color: var(--white-0);
+}
+
+a,
+button,
+input[type='submit'] {
+	cursor: pointer;
+}
+
+h1 {
+	font-size: var(--font-xxlarge);
+	line-height: var(--font-l150);
+}
+h2 {
+	font-size: var(--font-xlarge);
+	line-height: var(--font-l150);
+}
+h3 {
+	font-size: var(--font-large);
+	line-height: var(--font-l150);
+}
+p,
+a,
+button,
+input,
+textarea {
+	font-size: var(--font-base);
+}
+
+strong {
+	font-weight: var(--font-bold);
+}
