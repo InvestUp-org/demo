@@ -219,20 +219,3 @@
 		}
 	}
 }
-
-.chatbot-button {
-	padding: var(--space-16);
-	position: fixed;
-	bottom: var(--space-16);
-	right: var(--space-16);
-	border-radius: var(--border-rc);
-	border: var(--border);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--white-0);
-
-	img {
-		height: 1.5rem;
-	}
-}
