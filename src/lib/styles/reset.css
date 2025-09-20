@@ -18,6 +18,7 @@
 	transform: none;
 	perspective: none;
 	filter: none;
+	word-break: keep-all;
 }
 
 html,
