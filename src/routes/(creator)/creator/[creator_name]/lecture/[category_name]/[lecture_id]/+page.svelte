@@ -42,7 +42,10 @@
 			</div>
 			<div class="content-section">
 				<div class="video" id="a1">
-					<img src={ex_video} alt="" />
+					<video src="" controls>
+						<track kind="captions"/>
+						<track kind="chapters"/>
+					</video>
 				</div>
 				<div class="text">
 					<h2 id="a3">
