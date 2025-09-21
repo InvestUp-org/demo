@@ -36,7 +36,7 @@
 			padding-top: 0;
 
 			.title {
-				max-width: 10rem;
+				max-width: 8rem;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;

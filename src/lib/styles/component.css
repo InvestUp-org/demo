@@ -219,3 +219,19 @@
 		}
 	}
 }
+
+@media all and (min-width: 1600px) {
+	.container {
+		max-width: var(--max-desk) !important;
+	}
+}
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+	.container {
+		max-width: var(--max-tabl) !important;
+	}
+}
+@media all and (min-width: 700px) and (max-width: 1200px) {
+	.container {
+		max-width: var(--max-mobi) !important;
+	}
+}

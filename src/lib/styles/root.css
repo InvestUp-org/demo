@@ -65,6 +65,6 @@
     /* width */
     --max-full: 100%;
     --max-desk: 1440px;
-    --max-tabl: 1200px;
-    --max-mobi: 830px;
+    --max-tabl: 1080px;
+    --max-mobi: 810px;
 }
