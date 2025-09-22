@@ -5,6 +5,58 @@
 	const isShowChat = () => {
 		showChat = !showChat;
 	};
+
+	let userInput = $state('');
+	let chatHistory: { role: 'user' | 'bot'; text: string; time: string }[] = $state([]);
+	let loading = $state(false);
+
+	async function sendMessage() {
+		if (!userInput) return;
+
+		const userMessage = {
+			role: 'user' as const,
+			text: userInput,
+			time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+		};
+		chatHistory = [...chatHistory, userMessage];
+
+		const prompt = userInput;
+		userInput = '';
+		loading = true;
+
+		try {
+			const response = await fetch('/api/chat', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ prompt })
+			});
+
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+
+			const { text } = await response.json();
+
+			const botMessage = {
+				role: 'bot' as const,
+				text: text,
+				time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+			};
+			chatHistory = [...chatHistory, botMessage];
+		} catch (error) {
+			console.error('Error sending message:', error);
+			const errorMessage = {
+				role: 'bot' as const,
+				text: 'Sorry, something went wrong. Please try again.',
+				time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+			};
+			chatHistory = [...chatHistory, errorMessage];
+		} finally {
+			loading = false;
+		}
+	}
 </script>
 
 {#if showChat}
@@ -15,29 +67,26 @@
 				<p>현재 강의에서 궁금한 내용이 있다면 물어보세요!</p>
 			</div>
 			<div class="chatbox">
-				<div class="chat user">
-					<p>지지가 구체적으로 어떤 의미야?</p>
-					<span>08:15 AM</span>
-				</div>
-				<div class="chat bot">
-					<span class="botname">InvestUp AI</span>
-					<p>
-						'지지’란 내리던 주가가 어떤 특정한 지점에서 더 이상 떨어지지 않는(지지) 상황을 말합니다.
-					</p>
-					<span>08:16 AM</span>
-				</div>
-				<div class="chat user">
-					<p>그러면 지지나 저항이 구체적으로 일어나는 상황을 알려줄래?</p>
-					<span>08:17 AM</span>
-				</div>
-				<div class="chat bot">
-					<span class="botname">InvestUp AI</span>
-					<p>...</p>
-				</div>
+				{#each chatHistory as message}
+					<div class="chat {message.role}">
+						{#if message.role === 'bot'}
+							<span class="botname">InvestUp AI</span>
+						{/if}
+						<p>{message.text}</p>
+						<span>{message.time}</span>
+					</div>
+				{/each}
 			</div>
 			<div class="input">
-				<form action="" method="get">
-					<input type="text" />
+				<form
+					action=""
+					method="get"
+					onsubmit={(e) => {
+						e.preventDefault();
+						sendMessage();
+					}}
+				>
+					<input type="text" bind:value={userInput} />
 					<button type="submit">
 						<img src={logob} alt="" />
 					</button>
@@ -84,6 +133,8 @@
 			flex-direction: column;
 			gap: var(--space-16);
 			padding: var(--space-16);
+			height: 20rem;
+			overflow-y: auto;
 
 			.user {
 				display: flex;
@@ -130,8 +181,8 @@
 		}
 		.input form {
 			padding: var(--space-16);
-            display: grid;
-            grid-template-columns: 5fr 1fr;
+			display: grid;
+			grid-template-columns: 5fr 1fr;
 
 			input[type='text'] {
 				background-color: var(--white-1);
