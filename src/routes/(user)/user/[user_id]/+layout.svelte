@@ -5,5 +5,4 @@
 </script>
 
 <Header />
-<HeaderNo />
 {@render children?.()}

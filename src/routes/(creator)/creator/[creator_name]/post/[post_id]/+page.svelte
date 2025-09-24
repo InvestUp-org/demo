@@ -2,8 +2,6 @@
 	import Header from '$lib/components/Header.svelte';
 	import CardHorizontal from '$lib/components/CardHorizontal.svelte';
 	import CardVertical from '$lib/components/CardVertical.svelte';
-	import logo from '$lib/assets/images/logo.svg';
-	import ex_video from '$lib/assets/example/ex_video.png';
 	import ex_table from '$lib/assets/example/ex_table.png';
 	import ex1 from '$lib/assets/example/ex1.jpg';
 	import ex2 from '$lib/assets/example/ex2.jpg';
@@ -12,9 +10,6 @@
 	import ex5 from '$lib/assets/example/ex5.jpg';
 	import ex6 from '$lib/assets/example/ex6.jpg';
 	import ex7 from '$lib/assets/example/ex7.jpg';
-	import ex8 from '$lib/assets/example/ex8.jpg';
-	import ex9 from '$lib/assets/example/ex9.jpg';
-	import ex10 from '$lib/assets/example/ex10.jpg';
 </script>
 
 <Header />
@@ -36,7 +31,7 @@
 					</p>
 				</div>
 				<div class="image">
-					<img src={ex_table} alt="">
+					<img src={ex_table} alt="" />
 				</div>
 				<div class="text">
 					<h2><strong>2. 세부 분석: 숫자 뒤에 숨겨진 이야기</strong></h2>
